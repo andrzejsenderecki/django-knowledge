@@ -1,0 +1,16 @@
+{% if questions_all %}
+    {% for question in questions_all %}
+        {{ question.question_number }}<br>
+        {{ question.question_text }}<br>
+        {{ question.answer_a }}<br>
+        {{ question.answer_b }}<br>
+        {{ question.answer_c }}<br>
+        {{ question.answer_b }}<br>
+        <br>
+    {% endfor %}
+{% else %}
+    <p>Test error.</p>
+{% endif %}
+
+
+
