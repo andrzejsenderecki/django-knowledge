@@ -11,3 +11,15 @@ class Question(models.Model):
 
     def __str__(self):
         return self.question_number
+
+class Answer1(models.Model):
+    question_answer = models.CharField(max_length=1)
+
+    def __str__(self):
+        return self.question_answer
+
+class Answer2(models.Model):
+    question_answer_1 = models.CharField(max_length=1)
+
+    def __str__(self):
+        return self.question_answer_1
