@@ -3,7 +3,7 @@ from . import views
 
 app_name = 'quiz'
 urlpatterns = [
-    # path('', views.question_list, name='question_list'),
+    #path('', views.question_list, name='question_list'),
     path('<int:question_id>/', views.question_single, name='question_single'),
 
 ]
