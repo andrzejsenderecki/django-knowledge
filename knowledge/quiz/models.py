@@ -23,3 +23,9 @@ class Answer2(models.Model):
 
     def __str__(self):
         return self.question_answer_1
+
+class Answer3(models.Model):
+    question_answer_2 = models.CharField(max_length=1)
+
+    def __str__(self):
+        return self.question_answer_2
