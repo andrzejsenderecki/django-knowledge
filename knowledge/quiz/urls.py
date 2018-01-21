@@ -3,8 +3,6 @@ from . import views
 
 app_name = 'quiz'
 urlpatterns = [
-    #path('', views.question_list, name='question_list'),
-    path('<int:question_id>/', views.question_single, name='question_single'),
-    path('', views.answer_result, name='answer_result'),
-
+    url(r'^quiz/$', quiz_views.question_single, name='quiz'),
+    url(r'^quiz/result$', quiz_views.answer_result, name='answer_result'),
 ]

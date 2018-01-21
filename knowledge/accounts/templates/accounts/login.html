@@ -1,4 +1,8 @@
-<h1> LOGIN</h1>
-<h1> LOGIN</h1>
-
-
+{% extends "base.html" %}
+{% block title %}Login{% endblock %}
+{% block content %}
+<form method="post">
+{% csrf_token %}
+{{ login_form.as_p }}
+<p><input type="submit" value="Login"></p>
+{% endblock %}

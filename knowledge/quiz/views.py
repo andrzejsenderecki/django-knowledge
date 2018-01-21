@@ -2,8 +2,10 @@ from django.shortcuts import render
 from django.http import Http404
 from .models import Question, Answer1, Answer2, Answer3
 from .forms import AnswerForm, AnswerForm1, AnswerForm2
+from django.contrib.auth.decorators import login_required
 
-def question_single(request, question_id):
+@login_required
+def question_single(request):
     try:
         question_single = Question.objects.get(pk=1)
     except Question.DoesNotExist:
@@ -45,6 +47,7 @@ def question_single(request, question_id):
 
     return render(request, 'quiz/single.html', {'question_single': question_single, 'question_single_2': question_single_2, 'question_single_3': question_single_3, 'answer_form': answer_form, 'answer_form_1': answer_form_1, 'answer_form_2': answer_form_2})
 
+@login_required
 def answer_result(request):
     final_result = 0
     final_result_text = 'none'
