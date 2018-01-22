@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 class Question(models.Model):
     question_number = models.CharField(max_length=100)
@@ -14,18 +15,23 @@ class Question(models.Model):
 
 class Answer1(models.Model):
     question_answer = models.CharField(max_length=1)
+    student = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
     def __str__(self):
         return self.question_answer
 
 class Answer2(models.Model):
     question_answer_1 = models.CharField(max_length=1)
+    student_2 = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+
 
     def __str__(self):
         return self.question_answer_1
 
 class Answer3(models.Model):
     question_answer_2 = models.CharField(max_length=1)
+    student_3 = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+
 
     def __str__(self):
         return self.question_answer_2

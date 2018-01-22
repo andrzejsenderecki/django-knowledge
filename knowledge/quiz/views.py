@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def question_single(request):
+
     try:
         question_single = Question.objects.get(pk=1)
     except Question.DoesNotExist:
@@ -22,9 +23,11 @@ def question_single(request):
         raise Http404("Not found question")
 
     answer_form = AnswerForm(data=request.POST)
+
     if request.method == 'POST':
         if answer_form.is_valid():
-            new_answer = answer_form.save()
+            new_answer = answer_form.save(commit=False)
+            new_answer.student = request.user
             new_answer.save()
         else:
             answer_form = AnswerForm()
@@ -32,7 +35,8 @@ def question_single(request):
     answer_form_1 = AnswerForm1(data=request.POST)
     if request.method == 'POST':
         if answer_form_1.is_valid():
-            new_answer_1 = answer_form_1.save()
+            new_answer_1 = answer_form_1.save(commit=False)
+            new_answer_1.student_2 = request.user
             new_answer_1.save()
         else:
             answer_form_1 = AnswerForm1()
@@ -40,7 +44,8 @@ def question_single(request):
     answer_form_2 = AnswerForm2(data=request.POST)
     if request.method == 'POST':
         if answer_form_2.is_valid():
-            new_answer_2 = answer_form_2.save()
+            new_answer_2 = answer_form_2.save(commit=False)
+            new_answer_2.student_3 = request.user
             new_answer_2.save()
         else:
             answer_form_1 = AnswerForm1()
