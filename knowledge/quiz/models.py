@@ -15,14 +15,14 @@ class Question(models.Model):
 
 class Answer1(models.Model):
     question_answer = models.CharField(max_length=1)
-    student = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+    student = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
     def __str__(self):
         return self.question_answer
 
 class Answer2(models.Model):
     question_answer_1 = models.CharField(max_length=1)
-    student_2 = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+    student_2 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
 
     def __str__(self):
@@ -30,7 +30,7 @@ class Answer2(models.Model):
 
 class Answer3(models.Model):
     question_answer_2 = models.CharField(max_length=1)
-    student_3 = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+    student_3 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
 
     def __str__(self):

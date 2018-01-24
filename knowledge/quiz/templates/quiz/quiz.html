@@ -1,0 +1,37 @@
+{{ question_single.question_number }}<br>
+{{ question_single.question_text }}<br>
+<h4>Choice answer:</h4>
+{{ question_single.answer_a }}<br>
+{{ question_single.answer_b }}<br>
+{{ question_single.answer_c }}<br>
+{{ question_single.answer_d }}<br>
+<form action="." method="post">
+{{ answer_form.as_p }}
+{% csrf_token %}
+<br>
+<br>
+{{ question_single_2.question_number }}<br>
+{{ question_single_2.question_text }}<br>
+<h4>Choice answer:</h4>
+{{ question_single_2.answer_a }}<br>
+{{ question_single_2.answer_b }}<br>
+{{ question_single_2.answer_c }}<br>
+{{ question_single_2.answer_d }}<br>
+<form action="." method="post">
+{{ answer_form_1.as_p }}
+{% csrf_token %}
+<br>
+<br>
+{{ question_single_3.question_number }}<br>
+{{ question_single_3.question_text }}<br>
+<h4>Choice answer:</h4>
+{{ question_single_3.answer_a }}<br>
+{{ question_single_3.answer_b }}<br>
+{{ question_single_3.answer_c }}<br>
+{{ question_single_3.answer_d }}<br>
+<form action="." method="post">
+{{ answer_form_2.as_p }}
+{% csrf_token %}
+<br>
+<p><input type="submit" value="Send your answers!"></p>
+</form>
