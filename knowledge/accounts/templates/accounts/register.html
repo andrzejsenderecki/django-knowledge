@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% block title %}Register{% endblock %}
+<a href="{% url "home" %}">Home Page</a>
 {% block content %}
 <form method="post">
 {% csrf_token %}

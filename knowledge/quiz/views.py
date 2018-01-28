@@ -4,54 +4,62 @@ from .models import Question, Answer1, Answer2, Answer3
 from .forms import AnswerForm, AnswerForm1, AnswerForm2
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-# from django.conf import settings
 
 @login_required
-def question_single(request):
+def questions(request):
     try:
-        question_single = Question.objects.get(pk=1)
-    except Question.DoesNotExist:
-        raise Http404("Not found question!")
+        is_user = User.objects.get(username=request.user)
+        is_answer = Answer1.objects.get(student=is_user)
+    except:
+        is_answer = 0
 
-    try:
-        question_single_2 = Question.objects.get(pk=2)
-    except Question.DoesNotExist:
-        raise Http404("Not found question")
+    if is_answer == 0:
+        try:
+            question_single = Question.objects.get(pk=1)
+        except Question.DoesNotExist:
+            raise Http404("Not found question!")
 
-    try:
-        question_single_3 = Question.objects.get(pk=3)
-    except Question.DoesNotExist:
-        raise Http404("Not found question")
+        try:
+            question_single_2 = Question.objects.get(pk=2)
+        except Question.DoesNotExist:
+            raise Http404("Not found question")
 
-    answer_form = AnswerForm(data=request.POST)
+        try:
+            question_single_3 = Question.objects.get(pk=3)
+        except Question.DoesNotExist:
+            raise Http404("Not found question")
 
-    if request.method == 'POST':
-        if answer_form.is_valid():
-            new_answer = answer_form.save(commit=False)
-            new_answer.student = request.user
-            new_answer.save()
-        else:
-            answer_form = AnswerForm()
+        answer_form = AnswerForm(data=request.POST)
 
-    answer_form_1 = AnswerForm1(data=request.POST)
-    if request.method == 'POST':
-        if answer_form_1.is_valid():
-            new_answer_1 = answer_form_1.save(commit=False)
-            new_answer_1.student_2 = request.user
-            new_answer_1.save()
-        else:
-            answer_form_1 = AnswerForm1()
+        if request.method == 'POST':
+            if answer_form.is_valid():
+                new_answer = answer_form.save(commit=False)
+                new_answer.student = request.user
+                new_answer.save()
+            else:
+                answer_form = AnswerForm()
 
-    answer_form_2 = AnswerForm2(data=request.POST)
-    if request.method == 'POST':
-        if answer_form_2.is_valid():
-            new_answer_2 = answer_form_2.save(commit=False)
-            new_answer_2.student_3 = request.user
-            new_answer_2.save()
-        else:
-            answer_form_1 = AnswerForm1()
+        answer_form_1 = AnswerForm1(data=request.POST)
+        if request.method == 'POST':
+            if answer_form_1.is_valid():
+                new_answer_1 = answer_form_1.save(commit=False)
+                new_answer_1.student_2 = request.user
+                new_answer_1.save()
+            else:
+                answer_form_1 = AnswerForm1()
 
-    return render(request, 'quiz/quiz.html', {'question_single': question_single, 'question_single_2': question_single_2, 'question_single_3': question_single_3, 'answer_form': answer_form, 'answer_form_1': answer_form_1, 'answer_form_2': answer_form_2})
+        answer_form_2 = AnswerForm2(data=request.POST)
+        if request.method == 'POST':
+            if answer_form_2.is_valid():
+                new_answer_2 = answer_form_2.save(commit=False)
+                new_answer_2.student_3 = request.user
+                new_answer_2.save()
+            else:
+                answer_form_1 = AnswerForm1()
+        return render(request, 'quiz/quiz.html', {'question_single': question_single, 'question_single_2': question_single_2, 'question_single_3': question_single_3, 'answer_form': answer_form, 'answer_form_1': answer_form_1, 'answer_form_2': answer_form_2})
+    else:
+        return render(request, 'quiz/answered.html')
+
 
 @login_required
 def answer_result(request):

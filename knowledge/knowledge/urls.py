@@ -21,12 +21,12 @@ from quiz import views as quiz_views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-url(r'^home/$', accounts_views.home, name='home'),
+url(r'^$', accounts_views.home, name='home'),
 url(r'^register/$', accounts_views.register, name='register'),
 url(r'^login/$', auth_views.login, name='login'),
 url(r'^logout/$', auth_views.LogoutView.as_view(), name='logout'),
 url(r'^dashboard/$', accounts_views.dashboard, name='dashboard'),
-url(r'^quiz/$', quiz_views.question_single, name='quiz'),
-url(r'^quiz/result$', quiz_views.answer_result, name='answer_result'),
+url(r'^quiz/$', quiz_views.questions, name='quiz'),
+url(r'^quiz/result$', quiz_views.answer_result, name='result'),
 path('admin/', admin.site.urls),
 ]
