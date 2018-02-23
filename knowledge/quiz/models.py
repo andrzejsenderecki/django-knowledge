@@ -24,7 +24,6 @@ class Answer2(models.Model):
     question_answer_1 = models.CharField(max_length=1)
     student_2 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
-
     def __str__(self):
         return self.question_answer_1
 
@@ -32,6 +31,26 @@ class Answer3(models.Model):
     question_answer_2 = models.CharField(max_length=1)
     student_3 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
 
-
     def __str__(self):
         return self.question_answer_2
+
+class Answer4(models.Model):
+    question_answer_3 = models.CharField(max_length=1)
+    student_4 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+
+    def __str__(self):
+        return self.question_answer_3
+
+class Answer5(models.Model):
+    question_answer_4 = models.CharField(max_length=1)
+    student_5 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+
+    def __str__(self):
+        return self.question_answer_4
+
+class Answer6(models.Model):
+    question_answer_5 = models.CharField(max_length=1)
+    student_6 = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default='', null=True)
+
+    def __str__(self):
+        return self.question_answer_5

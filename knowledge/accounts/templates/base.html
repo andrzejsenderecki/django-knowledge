@@ -1,9 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
 <html>
+<div id="website">
 <head>
-{% block title %}{% endblock %}
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
 </head>
 <body>
+<div id="header">
+    <h2 style="color: white">Knowledge</h2>
+    <p><a href="{% url 'login' %}">Login</a><a href="{% url 'register' %}">Register</a></p>
+</div>
+<div id="aside">
+    <p><a href="{% url 'home' %}">Home page</a></p>
+</div>
+<div id="content">
+{% block title %}{% endblock %}
 {% block content %}
 {% endblock %}
+{% block published %}
+{% endblock %}
+</div>
+</div>
 </body>
+</div>
 </html>

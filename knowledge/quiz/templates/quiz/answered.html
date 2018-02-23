@@ -1,4 +1,9 @@
+{% extends "base.html" %}
+{% block title %}
+<h1>Quiz</h1>
+{% endblock %}
+{% block content %}
 <p>You already answered on all questions!</p>
-<a href="{% url "result" %}">Display your result</a><br>
-<br>
-<a href="{% url "logout" %}">Logout</a>
+<p><a href="{% url "result" %}">Display your result</a></p>
+<p><a href="{% url "logout" %}">Logout</a></p>
+{% endblock %}

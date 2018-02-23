@@ -1,6 +1,10 @@
 {% extends "base.html" %}
-{% block title %}Home Page{% endblock %}
+{% block title %}
+<h1>Home Page</h1>
+{% endblock %}
 {% block content %}
-<a href="{% url "login" %}">Login</a>
-<a href="{% url "register" %}">Register</a>
+<br>
+<p>Do you want to take the test? You login or register and do it!</p>
+<p><a href="{% url "login" %}">Login</a></p>
+<p><a href="{% url "register" %}">Register</a><p/>
 {% endblock %}
