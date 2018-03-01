@@ -1,10 +1,11 @@
 {% extends "base.html" %}
 
 {% block title %}
-<h1>Your Result</h1>
+<h1>Your result</h1>
 {% endblock %}
 
 {% block content %}
+<h2>{{ final_result_text }}</h2>
 <h2>{{ question_single }}</h2>
 <p>{{ question_single.question_text }}</p>
 <h3>{{ good_bad_1 }}</h3>
