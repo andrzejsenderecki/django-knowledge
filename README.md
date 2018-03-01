@@ -26,3 +26,5 @@ This aplication is knowledge test which I wrote with Django. Aplication has such
 <hr>
 
 ![7](https://user-images.githubusercontent.com/33809996/36862174-53468f3a-1d86-11e8-9dac-fd3e0ed0dda1.jpg)
+
+![4](https://user-images.githubusercontent.com/33809996/36867268-ed8e105a-1d94-11e8-9fc0-c4362fe6cc0a.jpg)
