@@ -1,5 +1,12 @@
 # django-knowledge
 
+This aplication is knowledge test which I wrote with Django. Aplication has such features as:
+
+- user registration
+- user loging
+- if you are login you can take the test but you can do it only once
+- if you took the test you can display your result. The aplication check your answer and display yor result. If you answered good on at least 50% questions you win! 
+
 ![1](https://user-images.githubusercontent.com/33809996/36862143-450e73a6-1d86-11e8-9419-fc54a0f483a2.jpg)
 <hr>
 
